@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/drawer"
+    tools:openDrawer="start"
+    tools:context=".MainActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="@string/app_name"
+                    android:gravity="left"
+                    app:titleTextColor="#ffffff"
+                    android:id="@+id/toolbar"
+                    android:background="#082CE4"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchbar"
+            android:background="#ffffff"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:cardCornerRadius="50dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="35dp"
+                    android:onClick="searchClk"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_baseline_search_24" />
+
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="50dp"
+                    android:alpha="0.9"
+                    android:layout_marginLeft="25dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:hint="Search your favorite dish..."
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textColorHint="#7A7979"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_card"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchbar"
+            android:elevation="1dp" />
+
+        <TextView
+            android:id="@+id/catogries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_card"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/abeezee"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="Categories"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/catogries"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="-10dp"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/iconmenu"
+            android:id="@+id/navbar"
+            android:alpha="15"
+            app:headerLayout="@layout/header"
+            android:layout_gravity="start"
+            />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
